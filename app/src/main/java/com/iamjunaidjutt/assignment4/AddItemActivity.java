@@ -30,18 +30,22 @@ public class AddItemActivity extends AppCompatActivity {
     }
 
     public void onSaveClick(View view) {
-        String name = editTextItemName.getText().toString();
-        String quantity = editTextItemQuantity.getText().toString();
-        String price = editTextItemPrice.getText().toString();
+        String name = editTextItemName.getText().toString().trim();
+        String quantity = editTextItemQuantity.getText().toString().trim();
+        String price = editTextItemPrice.getText().toString().trim();
 
         if (name.isEmpty() || quantity.isEmpty() || price.isEmpty()) {
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        int quantityInt = Integer.parseInt(quantity);
-        double priceDouble = Double.parseDouble(price);
-        addItemToRealtimeDatabase(name, quantityInt, priceDouble);
+        try {
+            int quantityInt = Integer.parseInt(quantity);
+            double priceDouble = Double.parseDouble(price);
+            addItemToRealtimeDatabase(name, quantityInt, priceDouble);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Please enter valid numeric values for quantity and price", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void addItemToRealtimeDatabase(String name, int quantity, double price) {
@@ -52,8 +56,7 @@ public class AddItemActivity extends AppCompatActivity {
             shoppingItemsRef.child(itemId).setValue(newItem)
                     .addOnSuccessListener(aVoid -> {
                         Toast.makeText(this, "Item added successfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(this, ShoppingListActivity.class);
-                        startActivity(intent);
+                        finish();
                     })
                     .addOnFailureListener(e -> {
                         Toast.makeText(this, "Error adding item", Toast.LENGTH_SHORT).show();

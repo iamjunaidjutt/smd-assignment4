@@ -68,6 +68,10 @@ public class ShoppingListActivity extends AppCompatActivity {
         }
     }
 
+    public void onAddItemClick(View view) {
+        openAddItemForm();
+    }
+
     private void openAddItemForm() {
         Intent intent = new Intent(ShoppingListActivity.this, AddItemActivity.class);
         startActivity(intent);
