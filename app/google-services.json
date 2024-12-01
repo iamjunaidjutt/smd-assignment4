@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "775811660495",
+    "firebase_url": "https://assignment-4-dc83b-default-rtdb.firebaseio.com",
+    "project_id": "assignment-4-dc83b",
+    "storage_bucket": "assignment-4-dc83b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775811660495:android:f73b2ce8c321061f0f55ba",
+        "android_client_info": {
+          "package_name": "com.iamjunaidjutt.assignment4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-f9-PnRXl04VYsW6MF2SenxDfzx5fSy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
